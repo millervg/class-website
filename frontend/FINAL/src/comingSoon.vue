@@ -4,7 +4,5 @@
 
 
 <template>
-
-<h1>Gallery</h1>
-
+    <h1>comming soon page</h1>
 </template>
