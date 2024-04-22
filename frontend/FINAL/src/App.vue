@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 import filmCatalog from './filmCatalog.vue';
 import reviews from './reviews.vue';
 import comingSoon from './comingSoon.vue';
-import home from './home.vue';
+import home from './Home.vue';
 
 const routes = {
     '/filmCatalog': filmCatalog,
