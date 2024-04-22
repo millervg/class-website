@@ -17,7 +17,8 @@ var moviesDatabase *sql.DB
 func main() {
 	router := mux.NewRouter()
 
-	moviesDatabase, err := sql.Open("sqlite3", "../database/movies.db")
+	var err error
+	moviesDatabase, err = sql.Open("sqlite3", "../database/movies.db")
 	if err != nil {
 		log.Fatal(err)
 	}
