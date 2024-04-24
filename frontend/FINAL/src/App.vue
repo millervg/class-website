@@ -1,13 +1,17 @@
 <script setup>
 import { ref, computed } from 'vue';
-import Home from './Home.vue'; 
-import Gallery from './Gallery.vue'; 
-import Etc from './Etc.vue';
+import filmCatalog from './filmCatalog.vue';
+import reviews from './reviews.vue';
+import comingSoon from './comingSoon.vue';
+import home from './Home.vue';
+import filmCatalog2 from './filmCatalog2.vue';
 
 const routes = {
-    '/': Home,
-    '/Gallery': Gallery,
-    '/Etc': Etc,
+    '/filmCatalog': filmCatalog,
+    '/filmCatalog2': filmCatalog2,
+    '/reviews': reviews,
+    '/comingSoon': comingSoon,
+    '/home': home
 
 }
 
@@ -18,7 +22,7 @@ window.addEventListener("hashchange", () => {
 })
 
 const currentView = computed(() => {
-    return routes[currentPath.value.slice(1) || '/'] || NotFound
+    return routes[currentPath.value.slice(1) || '/'] 
 })
 
 const drawer = ref(false);
@@ -35,6 +39,13 @@ const drawer = ref(false);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+
+}
+
+.home{
+  text-decoration: none;
+  color: white; 
+  text-transform: capitalize;
 
 }
 
@@ -66,28 +77,30 @@ const drawer = ref(false);
 
 
 <template>
+  <!-- for this section maybe do a side menu for more links and pages. EX. top 100 moveis....sum from IMBd -->
     <v-app>
     <v-navigation-drawer color="black" v-model="drawer">
-      <v-list-item prepend-icon="mdi-home-circle" href="#/" title="Episodes" @click="drawer = !drawer"></v-list-item>
-      <v-list-item prepend-icon="mdi-play-box-outline " href="#/Gallery" title="Gallery"
+      <v-list-item prepend-icon="" href="#/" title="bob" @click="drawer = !drawer"></v-list-item>
+      <v-list-item prepend-icon="" href="#/" title=""
         @click="drawer = !drawer"></v-list-item>
-      <v-list-item prepend-icon="mdi-chat" href="#/Etc" title="Etc" @click="drawer = !drawer"></v-list-item>
+      <v-list-item prepend-icon="" href="#/" title="" @click="drawer = !drawer"></v-list-item>
     </v-navigation-drawer>
+  <!-- finish -->
 
     <v-app-bar color="black">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title>FilmFinder</v-app-bar-title>
+      <v-app-bar-nav-icon icon="mdi-movie-roll"  @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-title ><a class="home" href="#/home">FilmFinder</a></v-app-bar-title>
       <ul class="navigation-list">
-        <li ><a href="#/">Episodes</a></li>
-        <li><a href="#/Gallery">Gallery</a></li>
-        <li><a href="#/Etc">Etc</a></li>
+        <li><a href="#/filmCatalog">Film Catalog</a></li>
+        <li><a href="#/reviews">Reviews</a></li>
+        <li><a href="#/comingSoon">ComingSoon</a></li>
       </ul>
-      <v-btn href="#/" icon="mdi-home-outline"></v-btn>
+      <v-btn href="#/home" icon="mdi-home-outline"></v-btn>
       <v-btn icon="mdi-magnify"></v-btn>
-      <v-btn icon="mdi-dots-vertical"></v-btn>
+      <!-- <v-btn icon="mdi-dots-vertical"></v-btn> -->
     </v-app-bar>
 
-    <v-main >
+    <v-main style="background-color: darkslategray;">
       <component :is="currentView"></component>
     </v-main>
     <v-footer app color="black">Copyright 2024 by FilmFinder.com</v-footer>
