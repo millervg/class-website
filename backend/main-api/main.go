@@ -47,6 +47,7 @@ func GetAllMoviesHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
+	enableCors(&w)
 	w.Write(moviesJson)
 
 }
