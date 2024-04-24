@@ -4,9 +4,11 @@ import filmCatalog from './filmCatalog.vue';
 import reviews from './reviews.vue';
 import comingSoon from './comingSoon.vue';
 import home from './Home.vue';
+import filmCatalog2 from './filmCatalog2.vue';
 
 const routes = {
     '/filmCatalog': filmCatalog,
+    '/filmCatalog2': filmCatalog2,
     '/reviews': reviews,
     '/comingSoon': comingSoon,
     '/home': home

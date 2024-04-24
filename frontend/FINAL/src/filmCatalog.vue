@@ -1,51 +1,48 @@
 <script setup>
 import { ref } from 'vue';
-
-const names = ref([
-    'Bob',
-    'Angie',
-    'Monica'
-]);
-
-const cardTitle = ref("");
-const cardGenre = ref("");
-const cardYear = ref("");
-const cardImg = ref("");
+import movieFetch from './components/movieFetch.vue';
 </script>
 
 <template>
-  <div class="container">
-    <v-card class="card" variant="outlined">
-      <v-card-title>{{ names[0] }}</v-card-title>
-      <v-card-text>He is a builder</v-card-text>
-    </v-card>
-    <v-card class="card" variant="outlined">
-      <v-card-title>{{ names[1] }}</v-card-title>
-      <v-card-text>She loves to cook</v-card-text>
-    </v-card>
-    <v-card class="card" variant="outlined">
-      <v-card-title>{{ names[2] }}</v-card-title>
-      <v-card-text>She loves to knit</v-card-text>
-    </v-card>
-  </div>
+      <movie-fetch></movie-fetch>
+      <div class="page">
+            <ul>
+                  <li><a href="/filmcatalog2">1</a></li>
+                  <li><a href="#/home">2</a></li>
+                  <li><a href="#/home">3</a></li>
+                  <li><a href="#/home">4</a></li>
+
+            </ul>
+      </div>
 </template>
 
 <style scoped>
-.container {
-  margin-top: 200px;
-  display: flex;
-  justify-content: center;
+ul {
+      list-style: none;
 }
 
-.card:hover {
-  box-shadow: 4px 8px black;
+li{
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 15px;
+      border: 1px solid black;
+
+
 }
-.card {
-  text-align: center;
-  margin-left: 10px;
-  gap: 20px;
-  width: 200px;
-  height: 100px;
-  background-color: white; 
+
+li a {
+  display: block;
+  padding: 5px 10px;
+  color: black; /* Change text color to black */
+  text-decoration: none;
+}
+
+.page{
+      text-align: center;
 }
 </style>
+  
+
+
+  

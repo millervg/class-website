@@ -1,9 +1,7 @@
 <script setup>
-
 </script>
 
-
 <template>
-    <h1>comming soon page</h1>
-
+    <h1>Wassup</h1>
+    <p>hello</p>
 </template>
