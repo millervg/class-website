@@ -33,3 +33,22 @@ func GetAllMovies(db *sql.DB) []models.Movies {
 	}
 	return movies
 }
+
+func InsertNewMovie(db *sql.DB, movie models.Movies) models.Movies {
+	insertMovieSql := "INSERT INTO movies (title, genre, year, imageName) VALUES (?, ?, ?)"
+	statement, err := db.Prepare(insertMovieSql)
+	if err != nil {
+		log.Fatal(err)
+	}
+	res, err := statement.Exec(movie.Title, movie.Genre, movie.Year, movie.ImageName)
+	if err != nil {
+		log.Fatal(err)
+	}
+	lid, err := res.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	movie.MovieId = int(lid)
+	return movie
+}
