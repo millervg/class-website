@@ -1,11 +1,57 @@
 <script setup>
 import { ref } from 'vue';
-import movieFetch from './components/movieFetch.vue';
-
 </script>
 
-
 <template>
+  <v-carousel :show-arrows="hover" hide-delimiters class="carousel" >
+    <v-carousel-item src="../images/Oppenheimer.png" cover>
+      <div class="text">
+      <h1>Oppenheimer<span class="inline-block">(2023)</span>
+</h1>
+      <p>
+      <span class="inline-block" style="background-color: orange; border-style: none; border-radius: 15px; padding: 5px; color: black; font-weight: bold;" >HD</span>
+      <span class="inline-block">6.6</span>
+      <span class="inline-block">118 min</span>
+      <span class="inline-block">Bioagraphy</span>
+      <span class="inline-block">Drama</span>
+      <span class="inline-block">History</span>
+      </p>      
+      <p>The story of J. Robert Oppenheimer’s role in the development of the atomic bomb during World War II.</p>
+    </div>
+    </v-carousel-item>
+    <v-carousel-item src="../images/Avengers.png" cover>
+      <div class="text">
+      <h1>Avengers Endgame<span class="inline-block">(2019)</span>
+</h1>
+      <p>
+      <span class="inline-block" style="background-color: orange; border-style: none; border-radius: 15px; padding: 5px; color: black; font-weight: bold;" >HD</span>
+      <span class="inline-block">9.0</span>
+      <span class="inline-block">182 min</span>
+      <span class="inline-block">Sci-Fi</span>
+      <span class="inline-block">Action</span>
+      </p>
+      <p>Adrift in space with diminishing oxygen, Tony Stark sends a desperate message to Pepper Potts, while the remaining Avengers, alongside Thor, Black Widow, Captain America, and Bruce Banner, plot to resurrect their fallen allies for an ultimate showdown against Thanos, the malevolent demigod who devastated both Earth and the universe.
+</p>
+    </div>
+    </v-carousel-item>
+    <v-carousel-item src="../images/batman.png" cover>
+      <div class="text">
+      <h1>Star Wars the Force Awakens<span class="inline-block">(2015)</span>
+</h1>
+      <p>
+      <span class="inline-block" style="background-color: orange; border-style: none; border-radius: 15px; padding: 5px; color: black; font-weight: bold;" >HD</span>
+      <span class="inline-block">9.3</span>
+      <span class="inline-block">126 min</span>
+      <span class="inline-block">Sci-Fi</span>
+      <span class="inline-block">Action</span>
+      </p>
+      <p>Star Wars: The Force Awakens is a 2015 American epic space opera film co-produced, co-written, and directed by J. J. Abrams. The sequel to Return of the Jedi, it is the seventh film in the "Skywalker Saga". 
+</p>
+    </div>
+    </v-carousel-item>
+
+  </v-carousel>
+
     <section class="section1">
             <h1>Welcome to FilmFinder.com</h1>
     </section>
@@ -22,6 +68,29 @@ import movieFetch from './components/movieFetch.vue';
   
   
 <style scoped>
+
+p{
+  margin-top: 5px;
+  max-width: 50%;
+}
+
+.inline-block {
+  display: inline-block;
+  margin-right: 10px; 
+}
+
+.carousel{
+  background-color: none;
+}
+
+.text{
+  color: white;
+  text-align: left;
+  padding: 15px;
+  margin-top: 260px;
+
+}
+
 .section1 {
   text-align: center;
   margin-top: 10px;
