@@ -3,7 +3,7 @@ import { ref } from 'vue';
 </script>
 
 <template>
-  <v-carousel :show-arrows="hover" hide-delimiters class="carousel" >
+  <v-carousel show-arrows="hover" hide-delimiters class="carousel" >
     <v-carousel-item src="../images/Oppenheimer.png" cover>
       <div class="text">
       <h1>Oppenheimer<span class="inline-block">(2023)</span>
