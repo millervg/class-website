@@ -5,13 +5,11 @@ import movieFetch from './components/movieFetch.vue';
 
 <template>
       <movie-fetch></movie-fetch>
-      <div class="page">
+      <div class="pages">
             <ul>
-                  <li><a href="/filmcatalog2">1</a></li>
-                  <li><a href="#/home">2</a></li>
-                  <li><a href="#/home">3</a></li>
-                  <li><a href="#/home">4</a></li>
-
+                  <li><a href="#/filmCatalog">1</a></li>
+                  <li><a href="#/filmCatalog2">2</a></li>
+                  <li><a href="#/filmCatalog3">3</a></li>
             </ul>
       </div>
 </template>
@@ -21,24 +19,28 @@ ul {
       list-style: none;
 }
 
-li{
+li {
       text-align: center;
       display: inline-block;
       margin-bottom: 10px;
       padding: 15px;
-      border: 1px solid black;
-
-
+      border: 2px solid white;
+      margin-left: 10px;
+      border-radius: 30px;
+      background-color: white;
 }
 
 li a {
-  display: block;
   padding: 5px 10px;
-  color: black; /* Change text color to black */
-  text-decoration: none;
+  color: black; 
+  text-decoration: solid;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: larger;
+  
 }
 
-.page{
+.pages{
       text-align: center;
 }
 </style>

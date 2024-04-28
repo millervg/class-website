@@ -42,7 +42,6 @@ const movies = ref([]);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .header h1{
@@ -50,18 +49,15 @@ const movies = ref([]);
     border: 5px solid black;  
     padding: 10px;
     border-radius: 10px;
-
 }
-
 .header{
   text-align: center;
   margin-top: 10px;
   padding: 20px; 
-
 }
 
 .header h1:hover {
-  box-shadow: 6px 6px black;
+  box-shadow: 4px 4px black;
 }
 
 .container {
@@ -72,11 +68,10 @@ const movies = ref([]);
 }
 
 .card:hover {
-  box-shadow: 6px 6px black;
+  box-shadow: 4.5px 4.9px black;
 }
 
 .card {
-  position: relative;
   text-align: center;
   width: 190px;
   height: 290px;
@@ -84,17 +79,14 @@ const movies = ref([]);
   padding: 0;
   border-radius: 15px;
   margin-bottom: 10px;
-
 }
 
 .card-content {
-  position: relative;
   width: 100%;
   height: 100%;
 }
 
 .card-image {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

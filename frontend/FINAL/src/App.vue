@@ -5,13 +5,15 @@ import reviews from './reviews.vue';
 import comingSoon from './comingSoon.vue';
 import home from './Home.vue';
 import filmCatalog2 from './filmCatalog2.vue';
+import filmCatalog3 from './filmCatalog3.vue';
 
 const routes = {
     '/filmCatalog': filmCatalog,
     '/filmCatalog2': filmCatalog2,
     '/reviews': reviews,
     '/comingSoon': comingSoon,
-    '/home': home
+    '/home': home,
+    '/filmCatalog3': filmCatalog3
 
 }
 

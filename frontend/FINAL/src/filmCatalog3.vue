@@ -2,10 +2,11 @@
 import { ref } from 'vue';
 import movieFetch from './components/movieFetch.vue';
 
+
 </script>
 
 <template>
-      <movie-fetch></movie-fetch>
+        <movie-fetch></movie-fetch>
       <div class="pages">
             <ul>
                   <li><a href="#/filmCatalog">1</a></li>
@@ -13,7 +14,6 @@ import movieFetch from './components/movieFetch.vue';
                   <li><a href="#/filmCatalog3">3</a></li>
             </ul>
       </div>
-
 </template>
 
 
