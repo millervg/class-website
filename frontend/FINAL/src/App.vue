@@ -86,14 +86,6 @@ const drawer = ref(false);
 
 
 <template>
-    <head>
-    <meta charset="UTF-8">
-    <title>HTML5 Game</title>
-    <meta name="description" content="simple game">
-    <meta name="author" content="CSC485">
-    <script src="script/main.js"></script>
-  </head>
-
   <!-- for this section maybe do a side menu for more links and pages. EX. top 100 moveis....sum from IMBd -->
     <v-app>
     <v-navigation-drawer color="black" v-model="drawer">
