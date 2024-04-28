@@ -1,5 +1,19 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+
+onMounted(() => {
+  let openBtn = document.querySelector('#open');
+  let closeBtn = document.querySelector('#close');
+  let modal = document.querySelector('.modal');
+
+  openBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+});
 </script>
 
 <template>
@@ -49,12 +63,16 @@ import { ref } from 'vue';
 </p>
     </div>
     </v-carousel-item>
-
   </v-carousel>
+        <div>
+          <button id="open">Click ME</button>
+          <div class="modal">
+            <h5 class="modal-title">Welcome to FilmFinder.com</h5>
+            <p><br>Where Every Movie is Just a Click Away!<br>Unleash the Magic of Cinema, Right at Your Fingertips!</p>
+            <button id="close">x</button>
+          </div>
 
-    <section class="section1">
-            <h1>Welcome to FilmFinder.com<br>Where Every Movie is Just a Click Away!<br>Unleash the Magic of Cinema, Right at Your Fingertips!</h1>
-    </section>
+        </div>
 
     
   <div class="grid">
@@ -96,10 +114,91 @@ import { ref } from 'vue';
   
   
   <style scoped>
+
+  .modal{
+    display: none;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+    animation-name: modalOpening;
+    animation-duration: 1s;
+    
+  }
+
+  @keyframes modalOpening {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 100%;
+    }
+  }
+
+  #open {
+    margin-left: 50%;
+    margin-top:30px;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+    padding: 15px, 50px;
+    background-color: rgba(0, 0, 0, 0.157);
+    border:  3px solid #000;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  #open:hover{
+    transform: translate(-50%, -50%) scale(120%);
+    background-color: #000;
+    color: #fff;
+  }
+
+  #close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px;
+    background: transparent;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+    border-radius: 4px;
+  }
+
+  #close:hover {
+    background:#fff;
+    color: #000;
+    transform: scale(130%);
+  }
+
+  .modal-title{
+    font-size: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .modal p {
+    margin-left: 185px;
+    font-size:20px ;
+  }
+
   .movieName{
     text-align: center;
   }
-
 
 p {
   margin-top: 5px;
@@ -120,7 +219,6 @@ p {
   text-align: left;
   padding: 15px;
   margin-top: 260px;
-
 }
 
 .section1 {
@@ -131,7 +229,6 @@ p {
 
 .section1 h1:hover{
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-
 }
 
 .section1 h1{
@@ -162,14 +259,11 @@ iframe{
 .title{
     font-weight: bolder;
     text-align: center;
-
   }
   
   .title2{
     font-weight: bolder;
     text-align: center;
-
-
   }
   
   .center {

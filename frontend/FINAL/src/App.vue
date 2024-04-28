@@ -21,7 +21,6 @@ const socials = [
   'mdi-instagram',
   'mdi-linkedin',
   'mdi-github',
-
 ]
 
 
@@ -36,7 +35,6 @@ const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || '/'] 
 })
 
-const drawer = ref(false);
 </script>
 
 
@@ -88,18 +86,9 @@ const drawer = ref(false);
 
 
 <template>
-  <!-- for this section maybe do a side menu for more links and pages. EX. top 100 moveis....sum from IMBd -->
     <v-app>
-    <v-navigation-drawer color="black" v-model="drawer">
-      <v-list-item prepend-icon="" href="#/" title="bob" @click="drawer = !drawer"></v-list-item>
-      <v-list-item prepend-icon="" href="#/" title=""
-        @click="drawer = !drawer"></v-list-item>
-      <v-list-item prepend-icon="" href="#/" title="" @click="drawer = !drawer"></v-list-item>
-    </v-navigation-drawer>
-  <!-- finish -->
-
     <v-app-bar color="black">
-      <v-app-bar-nav-icon icon="mdi-movie-roll"  @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon icon="mdi-movie-roll"></v-app-bar-nav-icon>
       <v-app-bar-title ><a class="home" href="#/home">FilmFinder</a></v-app-bar-title>
       <ul class="navigation-list">
         <li><a href="#/filmCatalog">Film Catalog</a></li>
@@ -142,13 +131,11 @@ const drawer = ref(false);
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .btn{
   margin-right: 10px;
   width: auto;
-
 }
 
 .social-link{
@@ -165,8 +152,6 @@ const drawer = ref(false);
   display: flex;
   margin-left: auto;
   align-items: center;
-
-
 }
 
 
@@ -174,7 +159,6 @@ const drawer = ref(false);
   text-decoration: none;
   color: white; 
   text-transform: capitalize;
-
 }
 
 .navigation-list {
