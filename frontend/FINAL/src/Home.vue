@@ -96,14 +96,8 @@ import { ref } from 'vue';
   
   
   <style scoped>
-
-  .homeInfo{
-    color: black;
-  }
-
   .movieName{
     text-align: center;
-    
   }
 
 
