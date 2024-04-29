@@ -28,6 +28,8 @@ func main() {
 	router.HandleFunc("/", hello).Methods(http.MethodPost)
 	router.HandleFunc("/movies", GetAllMoviesHandler).Methods(http.MethodPost)
 	router.HandleFunc("/addmovie", InsertNewMovieHandler).Methods(http.MethodPost)
+	router.HandleFunc("/watchedmovies", GetAllWatchedMoviesHandler).Methods(http.MethodPost)
+	router.HandleFunc("/addwatchedmovie", InsertWatchedMovieHandler).Methods(http.MethodPost)
 
 
 	http.ListenAndServe(":8000", router)
@@ -78,3 +80,39 @@ func InsertNewMovieHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(newMovieJson)
 }
 
+func GetAllWatchedMoviesHandler(w http.ResponseWriter, r *http.Request) {
+	watchedMovies := moviesdb.GetAllWatchedMovies(moviesDatabase)
+
+	watchedMoviesJson, err := json.Marshal(watchedMovies)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	enableCors(&w)
+	w.Write(watchedMoviesJson)
+
+}
+
+func InsertWatchedMovieHandler(w http.ResponseWriter, r *http.Request) {
+	var watched models.WatchedMovies
+
+	err := json.NewDecoder(r.Body).Decode(&watched)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	newWatchedMovie := moviesdb.InsertWatchedMovie(moviesDatabase, watched)
+
+	newWatchedMovieJson, err := json.Marshal(newWatchedMovie)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	enableCors(&w)
+	w.Write(newWatchedMovieJson)
+}
