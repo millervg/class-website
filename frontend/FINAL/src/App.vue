@@ -93,7 +93,7 @@ const currentView = computed(() => {
       <ul class="navigation-list">
         <li><a href="#/filmCatalog">Film Catalog</a></li>
         <li><a href="#/reviews">Reviews</a></li>
-        <li><a href="#/comingSoon">ComingSoon</a></li>
+        <li><a href="#/comingSoon">Watchlist</a></li>
       </ul>
       <v-btn href="#/home" icon="mdi-home-outline"></v-btn>
       <v-btn icon="mdi-magnify"></v-btn>
