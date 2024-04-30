@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 
-const movies = ref([]);
+const movies = ref([]);  
 
     fetch('http://localhost:8000/movies',{
         method: 'POST',
