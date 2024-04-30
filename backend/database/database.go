@@ -80,7 +80,7 @@ func GetAllWatchedMovies(db *sql.DB) []models.WatchedMovies {
 }
 
 func InsertWatchedMovie(db *sql.DB, watchedMovie models.WatchedMovies) models.WatchedMovies {
-	insertWatchedMovieSql := "INSERT INTO watched (title, rating, comment) VALUES (?, ?, ?)"
+	insertWatchedMovieSql := "INSERT INTO WatchedMovies (title, rating, comment) VALUES (?, ?, ?)"
 	statement, err := db.Prepare(insertWatchedMovieSql)
 	if err != nil {
 		log.Fatal(err)
