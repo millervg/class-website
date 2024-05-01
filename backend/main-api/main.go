@@ -98,17 +98,13 @@ func GetAllWatchedMoviesHandler(w http.ResponseWriter, r *http.Request) {
 func InsertWatchedMovieHandler(w http.ResponseWriter, r *http.Request) {
 	var watched models.WatchedMovies
 
-	log.Println("Starting insert")
-	log.Println(r.Body)
 	err := json.NewDecoder(r.Body).Decode(&watched)
 	if err != nil {
-		log.Println("ERROR getting body")
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	newWatchedMovie := moviesdb.InsertWatchedMovie(moviesDatabase, watched)
-	log.Println("Inserted into database")
 	newWatchedMovieJson, err := json.Marshal(newWatchedMovie)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

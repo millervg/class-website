@@ -4,16 +4,12 @@ import filmCatalog from './filmCatalog.vue';
 import reviews from './reviews.vue';
 import comingSoon from './comingSoon.vue';
 import home from './Home.vue';
-import filmCatalog2 from './filmCatalog2.vue';
-import filmCatalog3 from './filmCatalog3.vue';
 
 const routes = {
     '/filmCatalog': filmCatalog,
-    '/filmCatalog2': filmCatalog2,
     '/reviews': reviews,
     '/comingSoon': comingSoon,
     '/home': home,
-    '/filmCatalog3': filmCatalog3
 
 }
 
@@ -91,12 +87,12 @@ const currentView = computed(() => {
       <v-app-bar-nav-icon icon="mdi-movie-roll"></v-app-bar-nav-icon>
       <v-app-bar-title ><a class="home" href="#/home">FilmFinder</a></v-app-bar-title>
       <ul class="navigation-list">
+        <li><a href="#/home">Home</a></li>
         <li><a href="#/filmCatalog">Film Catalog</a></li>
-        <li><a href="#/reviews">Reviews</a></li>
         <li><a href="#/comingSoon">Watchlist</a></li>
       </ul>
-      <v-btn href="#/home" icon="mdi-home-outline"></v-btn>
-      <v-btn icon="mdi-magnify"></v-btn>
+      <!-- <v-btn href="#/home" icon="mdi-home-outline"></v-btn>
+      <v-btn icon="mdi-magnify"></v-btn> -->
     </v-app-bar>
 
     <v-main style="background-color: darkslategray;">
