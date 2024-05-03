@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 
 onMounted(() => {
   let openBtn = document.querySelector('#open');
@@ -64,6 +64,7 @@ onMounted(() => {
     </div>
     </v-carousel-item>
   </v-carousel>
+  
         <div>
           <button id="open">Click ME</button>
           <div class="modal">
@@ -71,10 +72,8 @@ onMounted(() => {
             <p><br>Where Every Movie is Just a Click Away!<br>Unleash the Magic of Cinema, Right at Your Fingertips!</p>
             <button id="close">x</button>
           </div>
-
         </div>
 
-    
   <div class="grid">
     <aside>
       <h1 class="title">Movie Reviews</h1>
@@ -95,7 +94,6 @@ onMounted(() => {
         <br>
         <iframe width="353" height="180" src="https://www.youtube.com/embed/YPY7J-flzE8" allowfullscreen></iframe>
       </div>
-
     </aside>
     <aside>
       <h1 class="title">Top 3 Lifetime Grosses</h1>
@@ -107,14 +105,11 @@ onMounted(() => {
         <iframe width="353" height="180" src="https://www.youtube.com/embed/d9MyW72ELq0" allowfullscreen></iframe>
       </div>
     </aside>
-
   </div>
-
 </template>
   
   
   <style scoped>
-
   .modal{
     display: none;
     position: absolute;
@@ -208,10 +203,6 @@ p {
 .inline-block {
   display: inline-block;
   margin-right: 10px; 
-}
-
-.carousel{
-  background-color: none;
 }
 
 .text{

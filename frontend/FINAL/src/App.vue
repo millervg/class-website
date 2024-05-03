@@ -1,13 +1,11 @@
 <script setup>
 import { ref, computed } from 'vue';
 import filmCatalog from './filmCatalog.vue';
-import reviews from './reviews.vue';
 import comingSoon from './comingSoon.vue';
 import home from './Home.vue';
 
 const routes = {
     '/filmCatalog': filmCatalog,
-    '/reviews': reviews,
     '/comingSoon': comingSoon,
     '/home': home,
 
@@ -19,8 +17,6 @@ const socials = [
   'mdi-github',
 ]
 
-
-
 const currentPath = ref(window.location.hash)
 
 window.addEventListener("hashchange", () => {
@@ -30,56 +26,7 @@ window.addEventListener("hashchange", () => {
 const currentView = computed(() => {
     return routes[currentPath.value.slice(1) || '/'] 
 })
-
 </script>
-
-
-<style scoped>
-
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
-
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-
-}
-
-.home{
-  text-decoration: none;
-  color: white; 
-  text-transform: capitalize;
-
-}
-
-.navigation-list {
-  list-style-type: none;
-  margin: 0; 
-  padding: 0; 
-}
-
-.navigation-list li {
-  display: inline; 
-  margin-right: 20px; 
-}
-
-.navigation-list li a {
-  text-decoration: none; 
-  color: white; 
-  text-transform: capitalize;
-  margin-right: 30px;
-}
-
-.navigation-list li a:hover {
-  color: blueviolet;
-}
-
-
-
-</style>
-
 
 <template>
     <v-app>
@@ -91,8 +38,6 @@ const currentView = computed(() => {
         <li><a href="#/filmCatalog">Film Catalog</a></li>
         <li><a href="#/comingSoon">Watchlist</a></li>
       </ul>
-      <!-- <v-btn href="#/home" icon="mdi-home-outline"></v-btn>
-      <v-btn icon="mdi-magnify"></v-btn> -->
     </v-app-bar>
 
     <v-main style="background-color: darkslategray;">
@@ -116,40 +61,14 @@ const currentView = computed(() => {
   </v-app>
 </template>
 
-
 <style scoped>
-
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
-
 
 *{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-
-.btn{
-  margin-right: 10px;
-  width: auto;
-}
-
-.social-link{
-  padding: 5px;
-  color: white;
-}
-
-.social-link:hover{
-  color:#8a2be2;
-}
-
-
-.footer{
-  display: flex;
-  margin-left: auto;
-  align-items: center;
-}
-
 
 .home{
   text-decoration: none;
@@ -179,6 +98,51 @@ const currentView = computed(() => {
   color: blueviolet;
 }
 
+.btn{
+  margin-right: 10px;
+  width: auto;
+}
 
+.social-link{
+  padding: 5px;
+  color: white;
+}
 
+.social-link:hover{
+  color:#8a2be2;
+}
+
+.footer{
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.home{
+  text-decoration: none;
+  color: white; 
+  text-transform: capitalize;
+}
+
+.navigation-list {
+  list-style-type: none;
+  margin: 0; 
+  padding: 0; 
+}
+
+.navigation-list li {
+  display: inline; 
+  margin-right: 20px; 
+}
+
+.navigation-list li a {
+  text-decoration: none; 
+  color: white; 
+  text-transform: capitalize;
+  margin-right: 30px;
+}
+
+.navigation-list li a:hover {
+  color: blueviolet;
+}
 </style>

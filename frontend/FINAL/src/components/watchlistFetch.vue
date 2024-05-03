@@ -1,21 +1,26 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const movies = ref([]);  
+
+const fetchWatchlist = () => {
     fetch('http://localhost:8000/watchedmovies',{
         method: 'POST',
     })
     .then(response => response.json())
     .then(data => {
-        movies.value = data
-        console.log(movies.WatchedMovieId)
-
-        console.log(data)
+        movies.value = data;
     })
     .catch(error => {
         console.error('Error:', error);
     });
+}
 
+onMounted(() => {
+    fetchWatchlist();
+    setInterval(fetchWatchlist, 1000);
+    });
+    
 </script>
 
 <template>
@@ -50,13 +55,10 @@ const movies = ref([]);
     text-align: center;
     margin-bottom: 20px;
     margin-top: 50px;
-
-    
   }
 
   .list:hover{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-
   }
   
   .list {
@@ -67,7 +69,6 @@ const movies = ref([]);
     margin-left: 50px;
     margin-right: 60px;
     margin-bottom: 20px;
-
     border: 3px solid white;
     border-radius: 20px;
   }

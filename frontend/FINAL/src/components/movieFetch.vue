@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 
-
 const movies = ref([]);  
 
     fetch('http://localhost:8000/movies',{
@@ -15,7 +14,6 @@ const movies = ref([]);
     .catch(error => {
         console.error('Error:', error);
     });
-
 </script>
 
 <template>
@@ -31,7 +29,6 @@ const movies = ref([]);
         </div>
       </div>
     </v-card>
-
   </div>
 </template>
 
