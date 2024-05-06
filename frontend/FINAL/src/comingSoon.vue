@@ -5,12 +5,29 @@ import watchlistFetch from './components/watchlistFetch.vue';
 const movieName = ref('');
 const movieRating = ref('');
 const movieComment = ref('');
-
+const errorMessage = ref('');
 
 function addMovie() {
+    // Clear previous error message
+    errorMessage.value = '';
+
+    // Validate input fields
+    if (!movieName.value.trim() || !movieRating.value.trim() || !movieComment.value.trim()) {
+        errorMessage.value = 'All fields are required';
+        return; // Exit function if any field is empty
+    }
+
+    // Convert rating to a number and validate
+    const rating = parseInt(movieRating.value.trim());
+    if (isNaN(rating) || rating < 0 || rating > 10) {
+        errorMessage.value = 'Rating must be a number between 0 and 10';
+        return; // Exit function if rating is invalid
+    }
+
+    // If all validations pass, proceed to add movie
     const movies = {
         Title: movieName.value.trim(),
-        Rating: parseInt(movieRating.value.trim()),
+        Rating: rating,
         Comment: movieComment.value.trim()
     };
 
@@ -20,11 +37,14 @@ function addMovie() {
     })
     .then(response => response.json())
     .then(data => {
+        // Handle success response if needed
     })
     .catch(error => {
         console.error('Error:', error);
+        errorMessage.value = 'An error occurred while adding the movie. Please try again later.';
     });
 
+    // Clear input fields after submission
     movieName.value = '';
     movieRating.value = '';
     movieComment.value = '';
@@ -32,7 +52,7 @@ function addMovie() {
 </script>
 
 <template>
-   <div>
+  <div>
     <div class="btn-wrapper">
       <btn>
         <h3 class="btn-text">
@@ -44,7 +64,7 @@ function addMovie() {
     <div class="grid">
       <aside class="form1">
         <v-sheet class="sheet">
-          <v-form class="form" @submit.prevent>
+          <v-form class="form">
             <h2>
               <v-icon>mdi-list-box</v-icon>
               Add To Watchlist
@@ -52,6 +72,7 @@ function addMovie() {
             <v-text-field v-model="movieName" label="Movie Title"></v-text-field>
             <v-text-field v-model="movieRating" label="Rating(0/10)"></v-text-field>
             <v-text-field v-model="movieComment" label="Comment"></v-text-field>
+            <span v-if="errorMessage" class="error">{{ errorMessage }}</span>
             <v-btn class="btn" style="background-color:darkslategray;" @click="addMovie" block>Add Movie</v-btn>
           </v-form>
         </v-sheet>
@@ -61,7 +82,6 @@ function addMovie() {
       </aside>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -142,5 +162,9 @@ h1 {
 
 aside {
   flex: 1;
+}
+
+.error {
+  color: red;
 }
 </style>
